@@ -1,3 +1,7 @@
+# Nodejs packages and build
+package-lock.json
+build/
+
 # Logs
 logs
 *.log
