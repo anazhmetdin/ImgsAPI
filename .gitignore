@@ -4,6 +4,7 @@ build/
 
 # test thumbs
 /thumbs/*
+!/thumbs/.gitkeep
 
 # Logs
 logs
