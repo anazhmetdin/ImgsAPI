@@ -6,7 +6,7 @@ const request = supertest(app);
 describe('Test endpoint responses', () => {
 
     it('gets the api/images endpoint', async () => {
-        const response = await request.get('/api/images');
+        const response = await request.get('/api/');
         expect(response.status).toBe(200);
     }
 )});

@@ -1,5 +1,5 @@
 import express from 'express'
-import imgsRoutes from './api/images'
+import imgsRoutes from './api/images/images.api'
 
 const app = express()
 
