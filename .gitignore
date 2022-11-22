@@ -2,6 +2,9 @@
 package-lock.json
 build/
 
+# test thumbs
+/thumbs/*
+
 # Logs
 logs
 *.log

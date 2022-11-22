@@ -98,15 +98,15 @@ describe('Test images api', () => {
         })
     })
     describe('Test processing.mw', () => {
-        const thumpname = path.normalize(
-            `${__dirname}/../../../../thumps/fjord_400_400.jpg`
+        const thumbname = path.normalize(
+            `${__dirname}/../../../../thumbs/fjord_400_400.jpg`
         )
 
         describe('Test resize middleware', () => {
             it('resizes the image successfully', async () => {
                 // delete the processed image if exists
                 try {
-                    unlinkSync(thumpname)
+                    unlinkSync(thumbname)
                 } catch {}
 
                 const response = await request.get(
@@ -119,7 +119,7 @@ describe('Test images api', () => {
         describe('Test checkCache middleware', () => {
             it('sends chached image successfully', async () => {
                 // check the stats of the old processed image
-                stat(thumpname, async (err1, stats1) => {
+                stat(thumbname, async (err1, stats1) => {
                     if (err1) {
                         throw err1
                     } else {
@@ -131,7 +131,7 @@ describe('Test images api', () => {
                         expect(response.status).toEqual(200)
 
                         // check that the requested image wasn't modified after the second request
-                        stat(thumpname, (err2, stat2) => {
+                        stat(thumbname, (err2, stat2) => {
                             expect(stats1.mtime).toEqual(stat2.mtime)
                         })
                     }

@@ -11,13 +11,13 @@ const checkCache = async (
 ) => {
     const width = parseInt(<string>req.query.width)
     const height = parseInt(<string>req.query.height)
-    const thumpname = path.normalize(
-        `${__dirname}/../../../thumps/${req.query.filename}_${width}_${height}.jpg`
+    const thumbname = path.normalize(
+        `${__dirname}/../../../thumbs/${req.query.filename}_${width}_${height}.jpg`
     )
 
-    access(thumpname, (err) => {
+    access(thumbname, (err) => {
         if (err) next()
-        else res.sendFile(thumpname)
+        else res.sendFile(thumbname)
     })
 }
 
@@ -31,18 +31,18 @@ const resize = async (
     const filename = path.normalize(
         `${__dirname}/../../../images/${<string>req.query.filename}.jpg`
     )
-    const thumpname = path.normalize(
-        `${__dirname}/../../../thumps/${req.query.filename}_${width}_${height}.jpg`
+    const thumbname = path.normalize(
+        `${__dirname}/../../../thumbs/${req.query.filename}_${width}_${height}.jpg`
     )
 
     sharp(filename)
         .resize(width, height)
-        .toFile(thumpname, (err) => {
+        .toFile(thumbname, (err) => {
             if (err)
                 res.status(500).send(
                     'Internal server error, please try again later'
                 )
-            else res.sendFile(thumpname)
+            else res.sendFile(thumbname)
         })
 }
 
