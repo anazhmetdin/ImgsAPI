@@ -1,6 +1,6 @@
 import express from 'express'
 
-const helloWorld = (
+const helloWorld = async (
     req: express.Request,
     res: express.Response,
     next: Function

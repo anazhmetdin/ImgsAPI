@@ -11,8 +11,4 @@ app.listen(port, () => {
 
 app.use('/api', imgsRoutes)
 
-const myFunc = (num: number): number => {
-  return num * num
-}
-
-export default myFunc
+export default app
