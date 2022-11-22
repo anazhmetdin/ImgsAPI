@@ -2,6 +2,7 @@ import express from 'express'
 import sharp from 'sharp'
 import path from 'path'
 import { access } from 'fs'
+import e from 'express'
 
 const checkCache = async (
     req: express.Request,
@@ -16,8 +17,7 @@ const checkCache = async (
 
     access(thumpname, (err) => {
         if (err) next()
-
-        res.sendFile(thumpname)
+        else res.sendFile(thumpname)
     })
 }
 

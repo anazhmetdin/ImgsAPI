@@ -16,15 +16,15 @@ const paramsExist = async (
     res: express.Response,
     next: Function
 ) => {
-    if (
-        !(
-            'filename' in req.query &&
-            'width' in req.query &&
-            'height' in req.query
-        )
-    ) {
+    if (!('width' in req.query)) {
+        res.status(400).send('missing parameter, must include width')
+    } else if (!('height' in req.query)) {
+        res.status(400).send('missing parameter, must include height')
+    } else if (!('filename' in req.query)) {
+        res.status(400).send('missing parameter, must include filename')
+    } else if (Object.keys(req.query).length != 3) {
         res.status(400).send(
-            'wrong parameters, must include filename & width & height'
+            'wrong parameters: must only include filename, width, heigth'
         )
     } else {
         next()
@@ -42,17 +42,15 @@ const checkParamsValues = async (
 
     if (isNaN(width) || width <= 0) {
         res.status(400).send('invalid width value, must be a positive number')
-    }
-    if (isNaN(height) || height <= 0) {
+    } else if (isNaN(height) || height <= 0) {
         res.status(400).send('invalid height value, must be a positive number')
-    }
-    if (filename == '') {
+    } else if (filename == '') {
         res.status(400).send(
             'invalid filename value, must be a non-empty srting'
         )
+    } else {
+        next()
     }
-
-    next()
 }
 
 const checkFile = async (
@@ -69,8 +67,7 @@ const checkFile = async (
             res.status(404).send(
                 "The requested image doesn't exist or can't be access currently"
             )
-
-        next()
+        else next()
     })
 }
 
