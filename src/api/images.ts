@@ -1,8 +1,8 @@
-import {Router} from 'express'; 
+import { Router } from 'express'
 import helloWorld from '../middleware/imgsprocessing'
 
-const imgsRoutes = Router();
+const imgsRoutes = Router()
 
-imgsRoutes.get('/images', helloWorld);
+imgsRoutes.get('/images', helloWorld)
 
-export default imgsRoutes;
+export default imgsRoutes

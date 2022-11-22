@@ -1,18 +1,18 @@
-import express from 'express';
-import imgsRoutes from './api/images';
+import express from 'express'
+import imgsRoutes from './api/images'
 
-const app = express();
+const app = express()
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT ?? 3000
 
 app.listen(port, () => {
-    console.log('Server listening on port', port)
-});
+  console.log('Server listening on port', port)
+})
 
-app.use('/api', imgsRoutes);
+app.use('/api', imgsRoutes)
 
 const myFunc = (num: number): number => {
-    return num * num;
-};
-  
-export default myFunc;
+  return num * num
+}
+
+export default myFunc
