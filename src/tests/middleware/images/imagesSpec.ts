@@ -1,6 +1,6 @@
 import supertest from 'supertest'
 import app from '../../../index'
-import { unlink, stat, unlinkSync, accessSync, access } from 'fs'
+import { stat, unlinkSync } from 'fs'
 import path from 'path'
 
 const request = supertest(app)
@@ -19,7 +19,10 @@ describe('Test images api', () => {
                 expect(response.status).toEqual(400)
                 expect(response.text.replace(/\s+/g, ' ')).toEqual(
                     `missing parameter, must include width<br>
-                    Click <a href="?">here</a> to view usage`.replace(/\s+/g, ' ')
+                    Click <a href="?">here</a> to view usage`.replace(
+                        /\s+/g,
+                        ' '
+                    )
                 )
             })
 
@@ -30,7 +33,10 @@ describe('Test images api', () => {
                 expect(response.status).toEqual(400)
                 expect(response.text.replace(/\s+/g, ' ')).toEqual(
                     `missing parameter, must include height<br>
-                    Click <a href="?">here</a> to view usage`.replace(/\s+/g, ' ')
+                    Click <a href="?">here</a> to view usage`.replace(
+                        /\s+/g,
+                        ' '
+                    )
                 )
             })
 
@@ -41,7 +47,10 @@ describe('Test images api', () => {
                 expect(response.status).toEqual(400)
                 expect(response.text.replace(/\s+/g, ' ')).toEqual(
                     `missing parameter, must include filename<br>
-                    Click <a href="?">here</a> to view usage`.replace(/\s+/g, ' ')
+                    Click <a href="?">here</a> to view usage`.replace(
+                        /\s+/g,
+                        ' '
+                    )
                 )
             })
 
@@ -52,7 +61,10 @@ describe('Test images api', () => {
                 expect(response.status).toEqual(400)
                 expect(response.text.replace(/\s+/g, ' ')).toEqual(
                     `wrong parameters: must only include filename, width, heigth<br>
-                    Click <a href="?">here</a> to view usage`.replace(/\s+/g, ' ')
+                    Click <a href="?">here</a> to view usage`.replace(
+                        /\s+/g,
+                        ' '
+                    )
                 )
             })
         })
