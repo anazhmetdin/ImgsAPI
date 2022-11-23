@@ -6,6 +6,9 @@ build/
 /thumbs/*
 !/thumbs/.gitkeep
 
+# index.html
+index.html
+
 # Logs
 logs
 *.log

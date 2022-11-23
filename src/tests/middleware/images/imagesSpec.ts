@@ -17,8 +17,9 @@ describe('Test images api', () => {
 
                 const response = await responseProminse
                 expect(response.status).toEqual(400)
-                expect(response.text).toEqual(
-                    'missing parameter, must include width'
+                expect(response.text.replace(/\s+/g, ' ')).toEqual(
+                    `missing parameter, must include width<br>
+                    Click <a href="?">here</a> to view usage`.replace(/\s+/g, ' ')
                 )
             })
 
@@ -27,8 +28,9 @@ describe('Test images api', () => {
                     '/api/images?width=400&filename=fjord'
                 )
                 expect(response.status).toEqual(400)
-                expect(response.text).toEqual(
-                    'missing parameter, must include height'
+                expect(response.text.replace(/\s+/g, ' ')).toEqual(
+                    `missing parameter, must include height<br>
+                    Click <a href="?">here</a> to view usage`.replace(/\s+/g, ' ')
                 )
             })
 
@@ -37,8 +39,9 @@ describe('Test images api', () => {
                     '/api/images?height=400&width=400'
                 )
                 expect(response.status).toEqual(400)
-                expect(response.text).toEqual(
-                    'missing parameter, must include filename'
+                expect(response.text.replace(/\s+/g, ' ')).toEqual(
+                    `missing parameter, must include filename<br>
+                    Click <a href="?">here</a> to view usage`.replace(/\s+/g, ' ')
                 )
             })
 
@@ -47,8 +50,9 @@ describe('Test images api', () => {
                     '/api/images?height=400&width=400&filename=fjord&extra'
                 )
                 expect(response.status).toEqual(400)
-                expect(response.text).toEqual(
-                    'wrong parameters: must only include filename, width, heigth'
+                expect(response.text.replace(/\s+/g, ' ')).toEqual(
+                    `wrong parameters: must only include filename, width, heigth<br>
+                    Click <a href="?">here</a> to view usage`.replace(/\s+/g, ' ')
                 )
             })
         })

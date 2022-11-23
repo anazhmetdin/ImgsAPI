@@ -22,5 +22,11 @@ To visit the hosted app on your local device:
 
 * Open the following link on the browser:
   * [localhost:3000/api/images](localhost:3000/api/images)
+* To optain images, there must be three parameters
+  * filename: [check "images" folder to get list of available images]
+  * width: positive integer
+  * height: positive integer
+* Example:
+  * [localhost:3000/api/images?width=500&amp;height=400&amp;filename=fjord](localhost:3000/api/images?width=500&height=400&filename=fjord)
 
 All images are inside the "images" folder and the cached images are stored inside the "thumbs"
