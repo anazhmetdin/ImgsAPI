@@ -30,6 +30,9 @@ const usage = async (
                         Example:<br>
                         <a href="?width=500&height=400&filename=fjord"> width=500&height=400&filename=fjord </a>
                     <p>
+                    <br>
+                    <br>
+                    <a href="../">API endpoints</a>
                 </body>
             </html>`
         )

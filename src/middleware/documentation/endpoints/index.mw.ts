@@ -27,6 +27,9 @@ const list = async (req: express.Request, res: express.Response) => {
                             )
                             .join('')}
                     </ul>
+                    <br>
+                    <br>
+                    <a href="../">home</a>
                 </body>
                 </html>`
             )
