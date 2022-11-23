@@ -1,8 +1,8 @@
-# [ImgsAPI](https://github.com/anazhmetdin/ImgsAPI)
+# [ImgsAPI](https://github.com/anazhmetdin/ImgsAPI) - [[app]](https://imgsapi.up.railway.app/)
 
 Here is an example of using this API:
 
-[![click to open the api](https://imgsapi-production.up.railway.app/api/images?width=400&height=400&filename=fjord)](https://imgsapi-production.up.railway.app/api/images?width=400&height=400&filename=fjord)
+[![click to open the api](https://imgsapi.up.railway.app/api/images?width=400&height=400&filename=fjord)](https://imgsapi.up.railway.app/api/images?width=400&height=400&filename=fjord)
 
 Click this image to visit the API link. I've hosted this app on [railway.app](https://railway.app) so that it would be accessible.
 
