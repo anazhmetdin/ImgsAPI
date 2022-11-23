@@ -2,11 +2,11 @@ import express from 'express'
 import { access } from 'fs'
 import path from 'path'
 
-const paramsExist = async (
+const paramsExist = (
     req: express.Request,
     res: express.Response,
     next: Function
-) => {
+): void => {
     if (!('width' in req.query)) {
         res.status(400).send(
             `missing parameter, must include width<br>
@@ -22,7 +22,7 @@ const paramsExist = async (
             `missing parameter, must include filename<br>
             Click <a href="?">here</a> to view usage`
         )
-    } else if (Object.keys(req.query).length != 3) {
+    } else if (Object.keys(req.query).length !== 3) {
         res.status(400).send(
             `wrong parameters: must only include filename, width, heigth<br>
             Click <a href="?">here</a> to view usage`
@@ -32,20 +32,20 @@ const paramsExist = async (
     }
 }
 
-const checkParamsValues = async (
+const checkParamsValues = (
     req: express.Request,
     res: express.Response,
     next: Function
-) => {
-    const width = parseInt(<string>req.query.width)
-    const height = parseInt(<string>req.query.height)
-    const filename = <string>req.query.filename
+): void => {
+    const width = parseInt(req.query.width as string)
+    const height = parseInt(req.query.height as string)
+    const filename = req.query.filename as string
 
     if (isNaN(width) || width <= 0) {
         res.status(400).send('invalid width value, must be a positive number')
     } else if (isNaN(height) || height <= 0) {
         res.status(400).send('invalid height value, must be a positive number')
-    } else if (filename == '') {
+    } else if (filename === '') {
         res.status(400).send(
             'invalid filename value, must be a non-empty srting'
         )
@@ -54,21 +54,24 @@ const checkParamsValues = async (
     }
 }
 
-const checkFile = async (
+const checkFile = (
     req: express.Request,
     res: express.Response,
     next: Function
-) => {
-    const filename = path.normalize(
-        `${__dirname}/../../../images/${<string>req.query.filename}.jpg`
+): void => {
+    const filename = path.join(
+        __dirname,
+        '../../..',
+        'images',
+        `${req.query.filename as string}.jpg`
     )
 
     access(filename, (err) => {
-        if (err)
+        if (err !== null) {
             res.status(404).send(
                 "The requested image doesn't exist or can't be access currently"
             )
-        else next()
+        } else next()
     })
 }
 

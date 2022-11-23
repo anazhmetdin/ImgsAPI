@@ -8,7 +8,7 @@
     "build": "npm run html && npx tsc",
     "start": "node build/index.js",
     "test": "npm run build && npm run jasmine",
-    "lint": "eslint src/index.ts --fix",
+    "lint": "eslint src --fix",
     "prettier": "prettier --config .prettierrc src --write",
     "jasmine": "jasmine",
     "nodemon": "nodemon src/index.ts"

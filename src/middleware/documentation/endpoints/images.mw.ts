@@ -1,10 +1,10 @@
 import express from 'express'
 
-const usage = async (
+const usage = (
     req: express.Request,
     res: express.Response,
     next: Function
-) => {
+): void => {
     if (Object.keys(req.query).length === 0) {
         res.send(
             `<!DOCTYPE html>
